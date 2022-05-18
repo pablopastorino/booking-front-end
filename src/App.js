@@ -15,6 +15,7 @@ class App extends Component {
 					reload.
 				</p>
 				<div>ESTOY DESARROLLANDO, NO ESTA LISTO</div>
+				<div>OTRO CAMBIO</div>
 			</div>
 		)
 	}
