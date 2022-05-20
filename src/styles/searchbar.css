@@ -1,0 +1,42 @@
+.rs-picker-toggle{
+    font-size: 1.2em !important;
+    padding: 0.75em 1.8em !important;
+}
+.rs-picker-toggle-caret{
+    font-size: 2em !important;
+    margin-top: 0.05em !important;
+    height: 21px !important;
+}
+.rs-picker-toggle-clean{
+    font-size: 1.2em !important;
+    margin: 0.15em 1em 0em 0em !important;
+}
+.rs-picker-toggle-value{
+    color: #093F58 !important;
+}
+.rs-btn-primary{
+    background-color: #F0572D !important;
+}
+.rs-calendar-table-cell-selected .rs-calendar-table-cell-content{
+    background-color: #F0572D !important
+}
+.rs-calendar-table-cell-in-range:before{
+    background-color: #fc7d59a5 !important;
+}
+.rs-calendar-table-cell-is-today .rs-calendar-table-cell-content {
+    box-shadow: inset 0 0 0 1px #F0572D !important;
+}
+.rs-picker-menu .rs-calendar .rs-calendar-table-cell:hover .rs-calendar-table-cell-content{
+    color: white !important;
+    background-color: #F0572D !important;
+}
+.rs-btn-link{
+    color: #F0572D !important;
+}
+
+@media screen and (min-width: 900px){
+    .rs-picker-daterange{
+        width: 40vw;
+        max-width: 35em;
+    }
+}
