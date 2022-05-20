@@ -1,0 +1,23 @@
+:root {
+	--primary-color: #f0572d;
+	--secondary-color: #31363f;
+	--dark-color: #191b1d;
+	--light-color: #dfe4ea;
+}
+
+.product-list {
+	width: -webkit-fill-available;
+}
+
+.product-list-title {
+	color: var(--secondary-color);
+	font-size: 1.2rem;
+	font-weight: bold;
+	text-align: start;
+}
+
+.product-list-items {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
