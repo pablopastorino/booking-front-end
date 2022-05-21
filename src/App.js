@@ -7,12 +7,14 @@ import hotels from './hotesls.json'
 
 import './App.css'
 import ProductList from './components/ProductList'
+import Input from './components/Input'
 
 class App extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<ProductList title={'Recomendaciones'} data={hotels} />
+				{/* <ProductList title={'Recomendaciones'} data={hotels} /> */}
+				<Input name={'Name'} label={'Nombre'} type={'password'} />
 				<Footer />
 			</React.Fragment>
 		)
