@@ -1,6 +1,6 @@
 import React from "react";
 
-function EyeIcon() {
+function EyeIcon({ handleClick }) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -8,6 +8,7 @@ function EyeIcon() {
             height="24"
             fill="none"
             viewBox="0 0 24 24"
+            onClick={handleClick}
         >
             <path
                 fill="#607D8B"

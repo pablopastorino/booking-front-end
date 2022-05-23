@@ -1,15 +1,29 @@
 import React from 'react'
+import { Field, ErrorMessage } from 'formik'
 
 import '../styles/Input.css'
 
-function Input({ name, label, error, ...rest }) {
+function Input({ name, label, type = 'text', children, error }) {
     return (
         <div className="input-container">
             <label className="input-label font-sm" htmlFor={name}>
                 {label}
             </label>
-            <input {...rest} name={name} id={name} className="input-square font-sm" />
-            {error && <div className="input-error">{error}</div>}
+            {
+                name === 'password' &&
+                <div className="password-container">
+                    <Field className={`input-square font-sm${error ? ' input-error' : ''}`} id={name} type={type} name={name} />
+                    {children}
+                    <ErrorMessage name={name} component="span" />
+                </div>
+            }
+            {
+                name !== 'password' &&
+                <>
+                    <Field className={`input-square font-sm${error ? ' input-error' : ''}`} id={name} type={type} name={name} />
+                    <ErrorMessage name={name} component="span" />
+                </>
+            }
         </div>
     )
 }
