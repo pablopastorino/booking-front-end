@@ -54,7 +54,12 @@
 	display: flex;
 	flex-direction: column;
 	padding: 0.5rem 0.7rem;
-	/* width: 100%; */
+}
+
+@media screen and (max-width: 1200px) {
+	.card-content {
+		padding: 0.5rem 0.7rem 0.7rem;
+	}
 }
 
 .card-content > .header {
@@ -158,6 +163,13 @@
 	font-weight: bold;
 	margin: 0;
 	text-align: left;
+
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3; /* number of lines to show */
+	line-clamp: 3;
+	-webkit-box-orient: vertical;
 }
 
 .description-more {

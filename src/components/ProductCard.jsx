@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from '@mui/material/Button'
 import FavoriteSharpIcon from '@mui/icons-material/FavoriteSharp'
 import StarSharpIcon from '@mui/icons-material/StarSharp'
@@ -10,6 +10,7 @@ import '../styles/ProductCard.css'
 import { colors } from '../theme/theme'
 
 function ProductCard({ type, name, stars, address, rating, imageUrl, highlights, liked, description }) {
+    const [favorite, setFavorite] = useState(liked)
 
 
     /**
@@ -34,7 +35,7 @@ function ProductCard({ type, name, stars, address, rating, imageUrl, highlights,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover'
             }}>
-                <FavoriteSharpIcon sx={{ fontSize: 28, color: 'white' }} />
+                <FavoriteSharpIcon sx={{ fontSize: 28, color: favorite ? colors.PRIMARY : 'white' }} onClick={() => setFavorite(!favorite)} />
             </div>
             <div className="card-content">
                 <div className="header">
@@ -63,7 +64,7 @@ function ProductCard({ type, name, stars, address, rating, imageUrl, highlights,
                     </div>
                 </div>
                 <div className="description">
-                    <p className='description-text'>{description}<span className='description-more clicable'>mas...</span></p>
+                    <span className='description-text'>{description}</span><span className='description-more clicable'>mas...</span>
                 </div>
                 <Button variant="contained" sx={{
                     bgcolor: colors.primary, '&:hover': {
