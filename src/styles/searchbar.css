@@ -4,12 +4,12 @@
 }
 .rs-picker-toggle-caret{
     font-size: 2em !important;
-    margin-top: 0.05em !important;
+    margin-top: -0.03em !important;
     height: 21px !important;
 }
 .rs-picker-toggle-clean{
     font-size: 1.2em !important;
-    margin: 0.15em 1em 0em 0em !important;
+    margin: 0.01em 1em 0em 0em !important;
 }
 .rs-picker-toggle-value{
     color: #093F58 !important;
@@ -33,10 +33,25 @@
 .rs-btn-link{
     color: #F0572D !important;
 }
+.rs-picker-daterange-menu{
+    z-index: 100000;
+}
 
 @media screen and (min-width: 900px){
     .rs-picker-daterange{
         width: 40vw;
         max-width: 35em;
+    }
+    .rs-picker-toggle-caret{
+        margin-top: 0.05em !important;
+    }
+    .rs-picker-toggle-clean{
+        margin: 0.15em 1em 0em 0em !important;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .rs-picker-toggle{
+        padding: 0.5em !important;
     }
 }

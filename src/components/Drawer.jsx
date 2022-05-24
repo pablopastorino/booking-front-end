@@ -34,7 +34,7 @@ const DrawerComp = () => {
           <Box
             height='25vh'
             position='relative'
-            sx={{background: colors.orange}}
+            sx={{background: colors.primary}}
             display='flex'
             alignItems='flex-end'
             justifyContent='flex-end'

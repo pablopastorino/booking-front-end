@@ -1,18 +1,32 @@
-import React, { Component } from 'react'
-import logo from './logo.svg'
-import './App.css'
-import Header from './components/Header'
-import { SearchBar } from './components/SearchBar'
-class App extends Component {
-	render() {
-		return (
-			<>
-				<Header/>
-				<SearchBar/>
-			</>
+import { useEffect, useReducer } from 'react';
+import { AuthContext } from './auth/authContext';
+import { authReducer } from './auth/authReducer';
+import { AppRouter } from './routers/AppRouter';
 
-		)
-	}
+
+const init = () => {
+    return JSON.parse( localStorage.getItem('user') ) || { logged: false };
 }
 
-export default App
+const App = () => {
+
+    const [ user, dispatch ] = useReducer( authReducer, {}, init );
+
+    useEffect(() => {
+        if ( !user ) return;
+
+        localStorage.setItem('user', JSON.stringify(user) );
+    }, [ user ])
+
+
+    return (
+        <AuthContext.Provider value={{
+            user,
+            dispatch
+        }}>
+            <AppRouter />
+        </AuthContext.Provider>
+    )
+}
+
+export default App;

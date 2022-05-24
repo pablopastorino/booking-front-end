@@ -7,10 +7,13 @@
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.8.0",
     "@mui/material": "^5.8.0",
+    "formik": "^2.2.9",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-router-dom": "6",
     "react-scripts": "5.0.1",
-    "rsuite": "^5.13.0"
+    "rsuite": "^5.13.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {},
   "scripts": {

@@ -38,7 +38,7 @@ const ContainerButton = styled(Button)(
     font-size: 1.5em;
     font-weight: 400;
     color: ${colors.white};
-    background: ${colors.primary};
+    background: ${colors.secondary};
     text-transform: none;
   `
 );
@@ -48,16 +48,18 @@ export const SearchBar = () => {
   const [inputValue, setInputValue] = useState('');
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+  const isMatchXS = useMediaQuery(theme.breakpoints.down("sm"));
+
   const [date, setDate] = useState({});
   return (
     <>
       <Box
-        padding={2}
+        padding={isMatch ? 1 : 2}
         textAlign='center'
         display='flex'
         flexDirection='column'
-        gap={3}
-        sx={{ background: colors.orange }}
+        gap={isMatch ? 1 : 3}
+        sx={{ background: colors.primary}}
       >
         <Typography variant='h1' sx={{ fontSize: isMatch ? '1.5em' : '2.5em', fontWeight: 600, color: colors.white }}>
           Busca ofertas en hoteles, casas y mucho más
@@ -65,7 +67,7 @@ export const SearchBar = () => {
         <Box
           display='flex'
           flexDirection={isMatch ? 'column' : 'row'}
-          gap={2}
+          gap={isMatch ? 1 : 2}
           // alignItems='center'
           justifyContent='center'
         >
@@ -73,9 +75,9 @@ export const SearchBar = () => {
             sx={{ color: colors.primaryDark, 
                   background: colors.white, 
                   borderRadius: '0.5em', 
-                  padding: '0.5em 0em', 
+                  padding: `${isMatch ? '0.2em 0.5em' : '0.6em 0em'}`, 
                   maxWidth: isMatch ? '100%' : '40vw', 
-                  width: isMatch ? '100%' : '35em' 
+                  width: isMatch ? '100%' : '35em',
                 }}
             fullWidth
             id="place-selected"
@@ -100,17 +102,17 @@ export const SearchBar = () => {
                   display='flex'
                   gap={2}
                 >
-                  <LocationOnOutlinedIcon fontSize='large' sx={{ color: colors.orange }} />
+                  <LocationOnOutlinedIcon fontSize='large' sx={{ color: colors.primary }} />
                   <Box
                     display='flex'
                     flexDirection='column'
                     gap='0.1em'
                   >
-                    <Typography sx={{ fontWeight: 600, color: colors.primaryDark }}>{option.full}</Typography>
-                    <Typography sx={{ fontWeight: 400, color: colors.primary }}>{option.country}</Typography>
+                    <Typography sx={{ fontWeight: 600, color: colors.secondary }}>{option.full}</Typography>
+                    <Typography sx={{ fontWeight: 400, color: colors.secondary }}>{option.country}</Typography>
                   </Box>
                 </Box>
-                <Divider sx={{ background: colors.orange }} />
+                <Divider sx={{ background: colors.primary }} />
               </Box>
             )}
             renderInput={(params) => {
@@ -124,7 +126,7 @@ export const SearchBar = () => {
                   disableUnderline: true,
                   startAdornment: (
                     <InputAdornment position="start" sx={{ margin: '0px 6px 0px 1em !important' }}>
-                      <LocationOnIcon fontSize='medium' sx={{ color: colors.orange }} />
+                      <LocationOnIcon fontSize='medium' sx={{ color: colors.primary }} />
                     </InputAdornment>
                   ),
                 }}
@@ -134,9 +136,9 @@ export const SearchBar = () => {
             }}
           />
           <DateRangePicker
+          style={{}}
             size="lg"
             placeholder="Checkin - Checkout"
-            showOneCalendar={isMatch ? true : false}
             preventOverflow={true}
             locale={{
               sunday: 'D',
@@ -158,6 +160,7 @@ export const SearchBar = () => {
             }}
             ranges={Ranges}
             format='dd-MM-yyyy'
+            showOneCalendar={isMatchXS ? true : false}
           />
           <ContainerButton
             variant='contained'
@@ -165,9 +168,11 @@ export const SearchBar = () => {
             sx={{maxWidth: isMatch ? '100%' : '15vw', 
                 width: isMatch ? '100%' : '10em', 
                 '&:hover': {
-                  borderColor: `${colors.primaryDark}`,
-                  background: `${colors.primaryDark}`
-                } }}
+                  borderColor: `${colors.secondary}`,
+                  background: `${colors.secondary}`
+                },
+                padding: isMatch && '0em'
+              }}
           >
             Buscar
           </ContainerButton>
