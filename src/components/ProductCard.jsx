@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from '@mui/material/Button'
 import FavoriteSharpIcon from '@mui/icons-material/FavoriteSharp'
 import StarSharpIcon from '@mui/icons-material/StarSharp'
@@ -10,6 +10,7 @@ import colors from '../configuration/colors'
 import '../styles/ProductCard.css'
 
 function ProductCard({ type, name, stars, address, rating, imageUrl, highlights, liked, description }) {
+    const [favorite, setFavorite] = useState(liked)
 
     function renderStars() {
         let starsArr = []
@@ -28,7 +29,7 @@ function ProductCard({ type, name, stars, address, rating, imageUrl, highlights,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover'
             }}>
-                <FavoriteSharpIcon sx={{ fontSize: 28, color: 'white' }} />
+                <FavoriteSharpIcon sx={{ fontSize: 28, color: favorite ? colors.PRIMARY : 'white' }} onClick={() => setFavorite(!favorite)} />
             </div>
             <div className="card-content">
                 <div className="header">
@@ -57,9 +58,15 @@ function ProductCard({ type, name, stars, address, rating, imageUrl, highlights,
                     </div>
                 </div>
                 <div className="description">
-                    <p className='description-text'>{description}<span className='description-more clicable'>mas...</span></p>
+                    <span className='description-text'>{description}</span><span className='description-more clicable'>mas...</span>
                 </div>
-                <Button variant="contained" sx={{ bgcolor: colors.PRIMARY }} fullWidth>Ver más</Button>
+                <Button variant="contained" sx={[
+                    { textTransform: 'none', bgcolor: colors.PRIMARY }, {
+                        '&:hover': {
+                            background: colors.PRIMARY,
+                            filter: 'brightness(.85)'
+                        }
+                    }]} fullWidth>Ver más</Button>
             </div>
 
         </div >

@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import Footer from './components/Footer'
 
 import './App.css'
-// import ProductList from './components/ProductList'
+import ProductList from './components/ProductList'
 // import Input from './components/Input'
 // import SignUpForm from './components/SignUpForm'
-import LoginForm from './components/LoginForm'
+// import LoginForm from './components/LoginForm'
+
+import hotels from './hotels.json'
 
 class App extends Component {
 	render() {
@@ -22,12 +24,12 @@ class App extends Component {
 						width: '100%',
 					}}
 				>
-					Test Headding
+					Sentite como en tu hogar
 				</h1>
-				{/* <ProductList title={'Recomendaciones'} data={hotels} /> */}
+				<ProductList title={'Recomendaciones'} data={hotels} />
 				{/* <Input name={'Name'} label={'Nombre'} type={'password'} /> */}
 				{/* <SignUpForm /> */}
-				<LoginForm />
+				{/* <LoginForm /> */}
 				<Footer />
 			</React.Fragment>
 		)
