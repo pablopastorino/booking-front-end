@@ -17,9 +17,14 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { colors } from "../theme/theme";
-const pages = ["Crear cuenta", "Iniciar sesión"];
+import { Link, useLocation } from "react-router-dom";
+const totalPages = [
+  {label: "Crear cuenta", path: '/signin'}, 
+  {label: "Iniciar sesión", path: '/login'}];
 const DrawerComp = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
+  const {pathname} = useLocation();
+  let pages = totalPages.filter(page => page.path !== pathname)
 
   return (
     <>
@@ -50,12 +55,19 @@ const DrawerComp = () => {
               </Typography>
           </Box>
         <List>
-          {pages.map((page, index) => (
-            <ListItemButton key={index} alignItems='center' divider dir="rtl">
-              <ListItemIcon>
-                <ListItemText>{page}</ListItemText>
-              </ListItemIcon>
-            </ListItemButton>
+          {pages.map(({label, path}, index) => (
+            <Link
+              to={path}
+              key={index}
+              style={{textDecoration: 'none'}}
+              onClick={() => setOpenDrawer(!openDrawer)}
+            >
+              <ListItemButton alignItems='center' divider dir="rtl">
+                <ListItemIcon>
+                  <ListItemText>{label}</ListItemText>
+                </ListItemIcon>
+              </ListItemButton>
+            </Link>
           ))}
         </List>
         <Box

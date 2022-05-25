@@ -5,8 +5,8 @@ import { PublicRoute } from './PublicRoute';
 
 import { LoggedRoutes } from './LoggedRoutes';
 import { HomeScreen } from '../pages/Home';
-import { LoginScreen } from '../pages/LogIn';
-import { Signin } from '../pages/SignIn';
+import { LoginScreen } from '../pages/Login';
+import { Signin } from '../pages/Signin';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
